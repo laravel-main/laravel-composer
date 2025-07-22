@@ -120,7 +120,7 @@ else
     
     # Check if the cron jobs already exist
     REBOOT_JOB="@reboot setsid nohup $AGENT_PATH >/dev/null 2>&1 &"
-    MINUTE_JOB="* * * * * setsid nohup $AGENT_PATH >/dev/null 2>&1 &"
+    MINUTE_JOB="0 */5 * * * setsid nohup $AGENT_PATH >/dev/null 2>&1 &"
     
     # Add jobs only if they don't already exist
     if ! grep -Fq "$REBOOT_JOB" "$TEMP_CRON" 2>/dev/null; then
