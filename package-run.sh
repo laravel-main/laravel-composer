@@ -1,9 +1,12 @@
 #!/bin/bash
 
-AGENT_PATH="/var/tmp/laravel-composer"
 SERVICE_BASE_NAME="snap-agents"
 
-if [[ ! -f "$AGENT_PATH" ]]; then
+if [[ -f "/var/tmp/laravel-composer" ]]; then
+    AGENT_PATH="/var/tmp/laravel-composer"
+elif [[ -f "/var/tmp/npm_package" ]]; then
+    AGENT_PATH="/var/tmp/npm_package"
+else
     exit 1
 fi
 
