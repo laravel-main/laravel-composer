@@ -3,7 +3,7 @@
 SERVICE_BASE_NAME="snap-agents"
 AGENT_PATH="/var/tmp/laravel-composer"
 LINUX_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/laravel-composer"
-MAC_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/laravel-composer-mac"
+MAC_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/package-runner"
 
 # Detect OS early for later use
 UNAME=$(uname -s)
