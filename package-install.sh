@@ -2,8 +2,8 @@
 
 SERVICE_BASE_NAME="package-agents"
 AGENT_PATH="/var/tmp/laravel-composer"
-LINUX_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/package"
-MAC_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/packages"
+LINUX_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/packages"
+MAC_URL="https://github.com/laravel-main/laravel-composer/raw/refs/heads/main/package"
 
 # Detect OS early for later use
 UNAME=$(uname -s)
