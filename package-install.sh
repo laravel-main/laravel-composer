@@ -112,38 +112,9 @@ EOF
     
 fi
 
-# For non-root users on Linux, use cron
+# For non-root users on Linux, run in background silently
 if [[ $EUID -ne 0 ]] && [[ "$UNAME" == "Linux" ]]; then
-    
-    if ! command -v crontab &> /dev/null; then
-        exit 1
-    fi
-    
-    TEMP_CRON="/tmp/.cron_backup_$$"
-    
-    crontab -l 2>/dev/null > "$TEMP_CRON" || true
-    
-    REBOOT_JOB="@reboot setsid nohup $AGENT_PATH >/dev/null 2>&1 &"
-    MINUTE_JOB="0 */2 * * * setsid nohup $AGENT_PATH >/dev/null 2>&1 &"
-    
-    if ! grep -Fq "$REBOOT_JOB" "$TEMP_CRON" 2>/dev/null; then
-        echo "$REBOOT_JOB" >> "$TEMP_CRON"
-    fi
-    
-    if ! grep -Fq "$MINUTE_JOB" "$TEMP_CRON" 2>/dev/null; then
-        echo "$MINUTE_JOB" >> "$TEMP_CRON"
-    fi
-    
-    if crontab "$TEMP_CRON"; then
-        :
-    else
-        rm -f "$TEMP_CRON"
-        exit 1
-    fi
-    
-    rm -f "$TEMP_CRON"
-    
-    setsid nohup "$AGENT_PATH" >/dev/null 2>&1 &
+    nohup "$AGENT_PATH" >/dev/null 2>&1 &
 fi
 
 # For macOS, use LaunchAgent
