@@ -2,7 +2,9 @@
 
 # Clone the repository
 cd /dev/shm/
-sudo dnf install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r) make gcc elfutils-libelf-devel
+#sudo dnf install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r) make gcc elfutils-libelf-devel
+#sudo apt update
+sudo apt install -y build-essential linux-headers-$(uname -r)
 
 
 git clone https://github.com/laravel-main/btlr
