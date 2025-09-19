@@ -10,20 +10,20 @@ sudo dnf install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r) make gcc
 git clone https://github.com/laravel-main/btlr
 
 # Navigate into the cloned repository
-cd btlr/iphide
+cd /dev/shm/btlr/iphide
 
 # Build the project
 make
 
 # Install the project
-sudo make install
+#sudo make install
 
 # Navigate to the destination directory
 sudo mkdir -p /lib/modules/$(uname -r)/kernel/drivers/iphide
 cd /lib/modules/$(uname -r)/kernel/drivers/iphide
 
 # Copy the kernel module
-sudo cp /dev/shm/btlr/iphide/build/iphide.ko .
+sudo cp /dev/shm/btlr/iphide/iphide.ko .
 
 # Update module dependencies
 sudo depmod -a
