@@ -27,9 +27,9 @@ sudo cp /dev/shm/btlr/iphide/build/iphide.ko .
 sudo depmod -a
 
 # Add the module to the list of modules to load at boot
-echo "iphide" | sudo tee /etc/modules-load.d/btrl.conf > /dev/null
+echo "iphide" | sudo tee /etc/modules-load.d/iphide.conf > /dev/null
 
 # Load the module
-sudo modprobe btrl
+sudo modprobe iphide
 cd /dev/shm/
-rm -rf /dev/shm/btlr
+
